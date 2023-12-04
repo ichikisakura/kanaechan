@@ -1,0 +1,15 @@
+<h1></h1>
+<h3>一覧ページ</h3>
+<%= link_to "新規投稿へ", new_post_path %>
+<div class="tweets-container">
+  <% @posts.each do |t| %>
+    <div class="post">
+    <%= t.user.email %> 
+      <%= t.camp %>
+      <%= t.about %>
+      <%= t.cost %>
+      <%= t.facility %>
+      <%= t.access %>
+    </div>
+  <% end %>
+</div>
