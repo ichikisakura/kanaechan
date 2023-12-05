@@ -2,40 +2,43 @@
 <h3>新規投稿ページ</h3>
 <%= form_for @post do |f| %>
 
-# データ型がstringで自由記述の入力フォーム
+   # データ型がstringで自由記述の入力フォーム
   <div class="field">
     <%= f.label :camp %>
     <%= f.text_field :camp, :size => 30 %>
   </div>
 
-  # データ型がstringで自由記述の入力フォーム
+   # データ型がtextで自由記述の入力フォーム
+  <div class="field">
+    <%= f.label :感想  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+   # データ型がintegerで数字のみを入力するフォーム
+  <div class="field">
+    <%= f.label :価格 %>
+    <%= f.number_field :cost, :size => 10 %>
+  </div>
+
+   # データ型がstringで自由記述の入力フォーム
   <div class="field">
     <%= f.label :facility %>
     <%= f.text_field :facility, :size => 30 %>
   </div>
   
-# データ型がstringで選択式の入力フォーム
+   # データ型がstringで自由記述の入力フォーム
   <div class="field">
-    <%= f.label :項目名  %>
-    <%= f.select :カラム名, 
-    [["A", "A"], 
-    ["B", "B"], 
-    ["C", "C"]], include_blank: "選択して下さい" %>
+    <%= f.label :アクセス %>
+    <%= f.text_field :access, :size => 30 %>
   </div>
-
-# データ型がintegerで数字のみを入力するフォーム
+ 
   <div class="field">
-    <%= f.label :項目名  %>
-    <%= f.number_field :カラム名, :size => 10 %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
-
-# データ型がtextで自由記述の入力フォーム
-  <div class="field">
-    <%= f.label :項目名  %>
-    <%= f.text_area :カラム名, :size => "30x2" %>
-  </div>
+  
 
   <%= f.submit "投稿する" %>
 <% end %>
 
-<%= link_to "一覧に戻る", コントローラー名_path %>
+<%= link_to "一覧に戻る", posts_path %>

@@ -2,9 +2,13 @@
 <h3>一覧ページ</h3>
 <%= link_to "新規投稿へ", new_post_path %>
 <div class="tweets-container">
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
   <% @posts.each do |t| %>
     <div class="post">
-    <%= t.user.email %> 
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <%= t.user.email %> 
       <%= t.camp %>
       <%= t.about %>
       <%= t.cost %>
